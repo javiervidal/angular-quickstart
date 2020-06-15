@@ -7,31 +7,31 @@ import {
   ContentChild,
   AfterContentInit,
   AfterViewInit
-} from "@angular/core";
-import { Joke } from "../models/joke";
-import { JokeComponent } from "../joke/joke.component";
+} from '@angular/core';
+import { Joke } from '../models/joke';
+import { JokeComponent } from '../joke/joke.component';
 
 @Component({
-  selector: "joke-list",
-  templateUrl: "./joke-list.template.html"
+  selector: 'app-joke-list',
+  templateUrl: './joke-list.template.html'
 })
 export class JokeListComponent implements AfterContentInit, AfterViewInit {
   jokes: Joke[];
 
   @ViewChild(JokeComponent) jokeViewChild: JokeComponent;
   @ViewChildren(JokeComponent) jokeViewChildren: QueryList<JokeComponent>;
-  @ViewChild("myHeader") headerEl: ElementRef;
+  @ViewChild('myHeader') headerEl: ElementRef;
   @ContentChild(JokeComponent) jokeContentChild: JokeComponent;
 
   constructor() {
     this.jokes = [
       new Joke(
-        "What did the cheese say when it looked in the mirror?",
-        "Hello-Me (Halloumi)"
+        'What did the cheese say when it looked in the mirror?',
+        'Hello-Me (Halloumi)'
       ),
       new Joke(
-        "What kind of cheese do you use to disguise a small horse?",
-        "Mask-a-pony (Mascarpone)"
+        'What kind of cheese do you use to disguise a small horse?',
+        'Mask-a-pony (Mascarpone)'
       )
     ];
   }
@@ -44,7 +44,7 @@ export class JokeListComponent implements AfterContentInit, AfterViewInit {
     console.log(
       `ngAfterViewInit - headerEl is ${this.headerEl.nativeElement.textContent}`
     );
-    this.headerEl.nativeElement.textContent = "Best Joke Machine";
+    this.headerEl.nativeElement.textContent = 'Best Joke Machine';
   }
 
   ngAfterContentInit() {

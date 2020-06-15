@@ -1,10 +1,26 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, HostListener, HostBinding, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appCardBackground]'
+  selector: '[appCardHover]'
 })
 export class CardHoverDirective {
-  constructor(private el: ElementRef) {
-    el.nativeElement.style.backgroundColor = '#eeeeee';
+  @HostBinding('class.card-outline-primary') private ishovering: boolean;
+
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) {
+    // el.nativeElement.style.backgroundColor = '#eeeeee';
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    const part = this.el.nativeElement;
+    this.renderer.setStyle(part, 'background-color', '#ffffff');
+    this.ishovering = false;
+  }
+  @HostListener('mouseenter') onMouseEnter() {
+    const part = this.el.nativeElement;
+    this.renderer.setStyle(part, 'background-color', '#eeeeee');
+    this.ishovering = true;
   }
 }
