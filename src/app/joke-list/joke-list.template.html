@@ -1,4 +1,4 @@
-<joke-form (jokeCreated)="addJoke($event)"></joke-form>
+<app-joke-form (jokeCreated)="addJoke($event)"></app-joke-form>
 <h2 #myHeader>View Jokes</h2>
 <app-joke *ngFor="let j of jokes" [joke]="j" (setup)="deleteJoke($event)">
   <h4 class="card-title">{{ j.setup }}</h4>

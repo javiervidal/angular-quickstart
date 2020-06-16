@@ -3,13 +3,13 @@ import {
   Output,
   EventEmitter,
   ViewEncapsulation
-} from "@angular/core";
-import { Joke } from "../models/joke";
+} from '@angular/core';
+import { Joke } from '../models/joke';
 
 @Component({
-  selector: "joke-form",
-  templateUrl: "./joke-form.template.html",
-  styleUrls: ["./joke-form.style.css"],
+  selector: 'app-joke-form',
+  templateUrl: './joke-form.template.html',
+  styleUrls: ['./joke-form.style.css'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class JokeFormComponent {
